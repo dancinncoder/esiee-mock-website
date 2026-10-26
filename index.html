@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contact – ESIEE Paris (Mockup)</title>
+<style>
+:root{
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+  --white:#ffffff;--ink:#1d2b3a;--muted:#5a6878;--line:#d5dde8;--pale:#eef4fb;
+  --blue:#0a4a9c;--navy:#08305f;--sky:#2b7bd6;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--white);color:var(--ink);font:16px/1.65 Georgia,"Times New Roman",serif}
+a{color:var(--blue)}
+.sans,nav,.util,.crumb,th,.side,footer,.notice,.btn{font-family:"Segoe UI",Arial,Helvetica,sans-serif}
+a:focus-visible,button:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+
+.notice{background:var(--pale);color:var(--navy);text-align:center;font-size:.8rem;padding:.35rem 1rem;border-bottom:1px solid var(--line)}
+.util{background:var(--navy);font-size:.82rem}
+.util div{max-width:1120px;margin:auto;padding:.4rem 1.25rem;display:flex;justify-content:flex-end;gap:1.4rem;flex-wrap:wrap}
+.util a{color:#cfe0f5;text-decoration:none}
+.util a:hover{color:#fff;text-decoration:underline}
+
+.brand{background:var(--white);border-bottom:1px solid var(--line)}
+.brand div{max-width:1120px;margin:auto;padding:1rem 1.25rem;display:flex;align-items:center;gap:1rem;justify-content:space-between;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:.8rem;text-decoration:none;color:var(--navy)}
+.logo svg{width:62px;height:62px;flex:none}
+.logo b{display:block;font-size:2rem;line-height:1;letter-spacing:.01em;font-family:Georgia,serif}
+.logo small{display:block;font:.8rem "Segoe UI",Arial,sans-serif;color:var(--muted);margin-top:.3rem}
+.search{display:flex}
+.search input{border:1px solid var(--line);border-right:0;padding:.5rem .7rem;font:.9rem "Segoe UI",Arial,sans-serif;width:220px;max-width:100%}
+.search button{background:var(--blue);color:#fff;border:0;padding:.5rem 1rem;font:.9rem "Segoe UI",Arial,sans-serif;cursor:pointer}
+
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20}
+nav{background:var(--blue)}
+nav .in{max-width:1120px;margin:auto;padding:0 1.25rem;display:flex;align-items:center}
+nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap}
+nav a{display:block;padding:.85rem 1.05rem;color:#fff;text-decoration:none;font-size:.95rem;font-weight:600;border-bottom:3px solid transparent}
+nav a:hover{background:var(--navy)}
+nav a.active{background:var(--white);color:var(--blue);border-bottom-color:var(--sky)}
+nav a:focus-visible{outline-color:#fff}
+.menu-btn{display:none;background:none;border:0;color:#fff;font-size:1rem;padding:.8rem 0;cursor:pointer;font-family:"Segoe UI",Arial,sans-serif;font-weight:600}
+@media(max-width:820px){
+  .menu-btn{display:block}
+  nav ul{display:none;width:100%;flex-direction:column}
+  nav ul.open{display:flex}
+  nav .in{flex-wrap:wrap}
+  nav a{border-bottom:1px solid rgba(255,255,255,.15)}
+}
+
+.crumb{max-width:1120px;margin:auto;padding:.9rem 1.25rem 0;font-size:.85rem;color:var(--muted)}
+.crumb a{text-decoration:none}
+.wrap{max-width:1120px;margin:auto;padding:0 1.25rem 3rem;display:grid;grid-template-columns:230px 1fr;gap:2.5rem}
+@media(max-width:820px){.wrap{grid-template-columns:1fr;gap:1rem}}
+
+.side{padding-top:1.4rem}
+.side h4{margin:0;background:var(--blue);color:#fff;padding:.6rem .9rem;font-size:.95rem}
+.side ul{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-top:0}
+.side li a{display:block;padding:.55rem .9rem;text-decoration:none;font-size:.9rem;border-bottom:1px solid var(--line);color:var(--ink)}
+.side li:last-child a{border-bottom:0}
+.side li a:hover{background:var(--pale);color:var(--blue)}
+.side li a.on{background:var(--pale);color:var(--blue);font-weight:700;border-left:4px solid var(--blue)}
+@media(max-width:820px){.side{display:none}}
+
+h1{font-size:2.1rem;color:var(--navy);margin:1.2rem 0 .3rem;padding-bottom:.6rem;border-bottom:3px solid var(--blue);font-weight:normal}
+h2{font-size:1.4rem;color:var(--blue);margin:2.4rem 0 .4rem;font-weight:normal;padding-left:.7rem;border-left:5px solid var(--sky)}
+.lead{color:var(--muted);margin:.5rem 0 1rem}
+.box{border:1px solid var(--line);background:var(--pale);padding:1rem 1.2rem;margin:1rem 0}
+.box p{margin:.2rem 0}
+.tw{overflow-x:auto;border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.95rem}
+th{background:var(--blue);color:#fff;text-align:left;padding:.6rem .9rem;font-size:.88rem}
+td{padding:.65rem .9rem;border-top:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even){background:#f7faff}
+tbody tr:hover{background:var(--pale)}
+td.d{font-weight:700;color:var(--navy)}
+td small{display:block;color:var(--muted);font-family:"Segoe UI",Arial,sans-serif;font-size:.8rem}
+td a{word-break:break-all}
+
+.util a.cur{color:#fff;font-weight:700;text-decoration:underline}
+footer{background:var(--navy);color:#cfe0f5;font-size:.88rem;padding:2rem 1.25rem}
+footer .in{max-width:1120px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem}
+footer h5{margin:0 0 .5rem;color:#fff;font-size:.95rem}
+footer p{margin:.2rem 0}
+footer a{color:#cfe0f5;text-decoration:none;display:block;padding:.1rem 0}
+footer a:hover{text-decoration:underline;color:#fff}
+.copy{background:#06264c;color:#9fb6d3;text-align:center;font:.78rem "Segoe UI",Arial,sans-serif;padding:.7rem 1rem}
+</style>
+</head>
+<body>
+<div class="notice">Fictional mockup for demonstration. All e-mail addresses are fake and not monitored.</div>
+<div class="util"><div><a href="#top">Students</a><a href="#top">Staff</a><a href="#top">Alumni</a><a href="#top">Library</a><span><a href="#" id="lfr" lang="fr" title="Français">FR</a> | <a href="#" id="len" lang="en" title="English">EN</a></span></div></div>
+
+<div class="brand"><div>
+  <a class="logo" href="#top" aria-label="ESIEE Paris home">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 3 57 12v21c0 15-10 24-25 28C17 57 7 48 7 33V12z" fill="#0a4a9c"/><path d="M32 3 57 12v21c0 15-10 24-25 28z" fill="#08305f" opacity=".35"/><path d="M20 22h24M20 32h17M20 42h24" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>
+    <span><b>ESIEE Paris</b><small>Graduate School of Engineering in Digital Technology</small></span>
+  </a>
+  <form class="search" role="search" onsubmit="return false"><input type="search" placeholder="Search the site" aria-label="Search"><button type="button">Search</button></form>
+</div></div>
+
+<header>
+<nav aria-label="Main"><div class="in">
+  <button class="menu-btn" id="mb" aria-expanded="false" aria-controls="menu">☰ Menu</button>
+  <ul id="menu">
+    <li><a href="#top">Home</a></li>
+    <li><a href="#top">About</a></li>
+    <li><a href="#top">Programs</a></li>
+    <li><a href="#top">Admissions</a></li>
+    <li><a href="#top">Research</a></li>
+    <li><a href="#top">Student Life</a></li>
+    <li><a href="#top" class="active" aria-current="page">Contact</a></li>
+  </ul>
+</div></nav>
+</header>
+
+<div class="crumb" id="top"><a href="#top">Home</a> &rsaquo; Contact</div>
+
+<div class="wrap">
+  <aside class="side" aria-label="In this section">
+    <h4>Contact</h4>
+    <ul>
+      <li><a class="on" href="#general">General enquiries</a></li>
+      <li><a href="#programs">Program administration</a></li>
+      <li><a href="#services">Student services</a></li>
+      <li><a href="#clubs">Student clubs</a></li>
+    </ul>
+  </aside>
+
+  <main>
+    <h1>Contact Us</h1>
+    <p class="lead">Please write to the office that handles your request. Messages are normally answered within three working days.</p>
+
+    <h2 id="general">General enquiries</h2>
+    <div class="box">
+      <p><strong>Main Enquiries Office</strong></p>
+      <p>E-mail: <a href="mailto:info@esiee-sample.example">info@esiee-sample.example</a></p>
+      <p><span>Phone:</span> +33 1 00 00 00 00 &nbsp;·&nbsp; <span>Mon–Fri, 9:00–17:30</span></p>
+    </div>
+    <div class="box">
+      <p><strong>MoTIS Student Office</strong></p>
+      <p>Absences, certificates, enrolment and exams · Room 1409 area</p>
+      <p>E-mail: <a href="mailto:motis.office@esiee-sample.example">motis.office@esiee-sample.example</a></p>
+      <p><span>Phone:</span> +33 1 00 00 14 09 &nbsp;·&nbsp; <span>Mon–Fri, 9:00–17:30</span></p>
+    </div>
+
+    <h2 id="programs">Program administration</h2>
+    <p class="lead">Contact the administrative officer of your major for timetables, enrollment documents and certificates.</p>
+    <div class="tw"><table>
+      <thead><tr><th>Program</th><th>Administrative officer</th><th>E-mail</th></tr></thead>
+      <tbody id="t1"></tbody>
+    </table></div>
+
+    <h2 id="services">Student services</h2>
+    <p class="lead">Support for fees, wellbeing, careers, IT, accessibility, data protection and the library.</p>
+    <div class="tw"><table>
+      <thead><tr><th>Service</th><th>Handles</th><th>E-mail</th><th>Hours</th></tr></thead>
+      <tbody id="t2"></tbody>
+    </table></div>
+
+    <h2 id="clubs">Student clubs</h2>
+    <p class="lead">Student-run clubs and associations for 2026–2027. The Student Life Office coordinates clubs, rooms, events and club finance.</p>
+    <div class="tw"><table>
+      <thead><tr><th>Club</th><th>Activities</th><th>E-mail</th></tr></thead>
+      <tbody id="t3"></tbody>
+    </table></div>
+  </main>
+</div>
+
+<footer><div class="in">
+  <div><h5>ESIEE Paris</h5><p>1 Fictional Avenue<br>93160 Noisy-le-Grand, France</p></div>
+  <div><h5>Admissions</h5><a href="#top">Apply</a><a href="#top">Tuition &amp; fees</a><a href="#top">Open days</a></div>
+  <div><h5>Campus</h5><a href="#top">Student life</a><a href="#top">Clubs</a><a href="#top">Library</a></div>
+  <div><h5>Legal</h5><a href="#top">Privacy policy</a><a href="#top">Accessibility</a><a href="#top">Site map</a></div>
+</div></footer>
+<div class="copy">© 2026 Demo page. Not affiliated with the real institution.</div>
+
+<script>
+var D="esiee-sample.example",C="clubs."+D;
+var programs=[
+ ["MOTIS","MoTIS Student Office","motis.office@"+D,"Room 1409 area · +33 1 00 00 14 09 · Mon–Fri 9:00–17:30"],
+ ["MOTIS – academic decisions","Programme Director","motis.director@"+D,"Escalations, leave and academic decisions · By appointment"],
+ ["Computer Science","Mr. Julien Martin","cs.admin@"+D],
+ ["Cybersecurity","Ms. Sofia Laurent","cybersecurity.admin@"+D],
+ ["Data Science & Artificial Intelligence","Mr. Karim Benali","dsai.admin@"+D],
+ ["Embedded Systems & Electronics","Ms. Emma Roux","embedded.admin@"+D],
+ ["Networks & Telecommunications","Mr. Hugo Petit","telecom.admin@"+D],
+ ["Energy & Smart Grids","Ms. Nadia Moreau","energy.admin@"+D],
+ ["Biomedical & Health Technologies","Mr. Antoine Girard","biomed.admin@"+D],
+ ["Industrial Systems & Management","Ms. Léa Fontaine","industrial.admin@"+D]
+];
+var services=[
+ ["Finance Office","Fees, refunds and payment plans","finance@"+D,"Tue–Thu 10:00–15:00"],
+ ["Wellbeing Service","Counselling and wellbeing workshops","wellbeing@"+D,"Mon–Fri, on booking"],
+ ["Student Life Office","Clubs, associations and campus events","clubs@"+D,"Mon–Fri 9:00–17:30"],
+ ["Careers Office","Job Forum, CV and internship agreements","careers@"+D,"Mon–Thu 10:00–16:00"],
+ ["Accessibility & Equality","Adjustments, harassment and discrimination","equality@"+D,"Confidential, 24/7 form"],
+ ["IT Helpdesk","Accounts, Wi-Fi and software","helpdesk@"+D,"Mon–Fri 8:30–18:00"],
+ ["Data Protection Officer","Access, correction or deletion of personal data","dpo@"+D,"—"],
+ ["Finance for clubs","Club funding, grants and receipts","clubfinance@"+D,"Tue–Thu 10:00–15:00"],
+ ["Room and equipment booking","Rooms and equipment loans for clubs","rooms@"+D,"Mon–Fri 9:00–17:00"],
+ ["Safety and events","Event safety and event requests","events@"+D,"By appointment"],
+ ["Library","Loans, databases and study rooms","library@"+D,"—"]
+];
+var clubs=[
+ ["Start-up & Entrepreneurship Club","Pitch nights, founder talks, visits with Paris & Co incubator partners","startup@"+C],
+ ["AI & Data Club","Hands-on workshops, reading group, small hackathons, tool demos","aidata@"+C],
+ ["Intercultural Café","Language-exchange and culture evenings; organises Potluck Day","cafe@"+C],
+ ["Public Speaking & Debate","Practice rounds, impromptu speeches, inter-school friendly debates","debate@"+C],
+ ["Career & Networking Club","CV clinics, mock interviews, alumni coffee chats, LinkedIn sessions","career@"+C],
+ ["Sustainability Club","Campus waste audit, clean-up days, green-business case clinics","green@"+C],
+ ["Sports Association","Football, running group, badminton; tournaments with nearby schools","sports@"+C],
+ ["Photo & Video Club","Campus media, event coverage, short documentary projects","media@"+C],
+ ["Board Games & Cinema","Game nights, film screenings with discussion, themed evenings","games@"+C],
+ ["Music & Open Mic","Jam sessions, open-mic evenings, end-of-term concert","music@"+C]
+];
+function fill(id,list,mode){
+  var tb=document.getElementById(id);
+  list.forEach(function(r){
+    var tr=document.createElement("tr");
+    var a=document.createElement("td");a.className="d";a.textContent=r[0];
+    var b=document.createElement("td");b.textContent=r[1];
+    if(mode==="p"&&r[3]){var sm=document.createElement("small");sm.textContent=r[3];b.appendChild(sm)}
+    var c=document.createElement("td");
+    var l=document.createElement("a");l.href="mailto:"+r[2];l.textContent=r[2];c.appendChild(l);
+    tr.appendChild(a);tr.appendChild(b);tr.appendChild(c);
+    if(mode==="s"){var h=document.createElement("td");h.textContent=r[3];tr.appendChild(h)}
+    tb.appendChild(tr);
+  });
+}
+fill("t1",programs,"p");fill("t2",services,"s");fill("t3",clubs,"c");
+var mb=document.getElementById("mb"),m=document.getElementById("menu");
+mb.onclick=function(){var o=m.classList.toggle("open");mb.setAttribute("aria-expanded",o)};
+</script>
+<script>
+var FR={
+"Fictional mockup for demonstration. All e-mail addresses are fake and not monitored.":"Maquette fictive à des fins de démonstration. Toutes les adresses e-mail sont fausses et ne sont pas surveillées.",
+"Students":"Étudiants","Staff":"Personnel","Alumni":"Anciens élèves","Library":"Bibliothèque",
+"Graduate School of Engineering in Digital Technology":"École d'ingénieurs du numérique",
+"Search":"Rechercher","☰ Menu":"☰ Menu",
+"Home":"Accueil","About":"À propos","Programs":"Formations","Admissions":"Admissions","Research":"Recherche","Student Life":"Vie étudiante",
+"General enquiries":"Renseignements généraux","Program administration":"Administration des formations","Student services":"Services aux étudiants",
+"Contact Us":"Nous contacter",
+"Please write to the office that handles your request. Messages are normally answered within three working days.":"Veuillez écrire au service qui traite votre demande. Les messages reçoivent généralement une réponse sous trois jours ouvrés.",
+"Main Enquiries Office":"Accueil et renseignements généraux","E-mail:":"E-mail :","Phone:":"Téléphone :","Mon–Fri, 9:00–17:30":"Du lundi au vendredi, 9 h 00 – 17 h 30",
+"Contact the administrative officer of your major for timetables, enrollment documents and certificates.":"Contactez le gestionnaire administratif de votre filière pour les emplois du temps, les documents d'inscription et les certificats.",
+"Program":"Formation","Administrative officer":"Gestionnaire administratif","Service":"Service","Handles":"Domaine",
+"Support for fees, wellbeing, clubs, health, careers and the library.":"Aide pour les frais de scolarité, le bien-être, les clubs, la santé, les carrières et la bibliothèque.",
+"Computer Science":"Informatique","Cybersecurity":"Cybersécurité",
+"Data Science & Artificial Intelligence":"Science des données et intelligence artificielle",
+"Embedded Systems & Electronics":"Systèmes embarqués et électronique",
+"Networks & Telecommunications":"Réseaux et télécommunications",
+"Energy & Smart Grids":"Énergie et réseaux intelligents",
+"Biomedical & Health Technologies":"Technologies biomédicales et de santé",
+"Industrial Systems & Management":"Systèmes industriels et management",
+"Hours":"Horaires","Club":"Club","Activities":"Activités","Student clubs":"Clubs étudiants",
+"MoTIS Student Office":"Secrétariat étudiant MoTIS","Absences, certificates, enrolment and exams · Room 1409 area":"Absences, certificats, inscriptions et examens · Secteur salle 1409",
+"Programme Director":"Directeur du programme","MOTIS – academic decisions":"MOTIS – décisions académiques",
+"Room 1409 area · +33 1 00 00 14 09 · Mon–Fri 9:00–17:30":"Secteur salle 1409 · +33 1 00 00 14 09 · Du lundi au vendredi, 9 h 00 – 17 h 30",
+"Escalations, leave and academic decisions · By appointment":"Recours, congés et décisions académiques · Sur rendez-vous",
+"Support for fees, wellbeing, careers, IT, accessibility, data protection and the library.":"Aide pour les frais de scolarité, le bien-être, les carrières, l'informatique, l'accessibilité, la protection des données et la bibliothèque.",
+"Student-run clubs and associations for 2026–2027. The Student Life Office coordinates clubs, rooms, events and club finance.":"Clubs et associations gérés par les étudiants pour 2026-2027. Le service Vie étudiante coordonne les clubs, les salles, les événements et les finances des clubs.",
+"Finance Office":"Service financier","Fees, refunds and payment plans":"Frais, remboursements et échéanciers de paiement","Tue–Thu 10:00–15:00":"Du mardi au jeudi, 10 h 00 – 15 h 00",
+"Wellbeing Service":"Service bien-être","Counselling and wellbeing workshops":"Soutien psychologique et ateliers bien-être","Mon–Fri, on booking":"Du lundi au vendredi, sur réservation",
+"Student Life Office":"Service Vie étudiante","Clubs, associations and campus events":"Clubs, associations et événements du campus","Mon–Fri 9:00–17:30":"Du lundi au vendredi, 9 h 00 – 17 h 30",
+"Job Forum, CV and internship agreements":"Job Forum, CV et conventions de stage","Mon–Thu 10:00–16:00":"Du lundi au jeudi, 10 h 00 – 16 h 00",
+"Accessibility & Equality":"Accessibilité et égalité","Adjustments, harassment and discrimination":"Aménagements, harcèlement et discrimination","Confidential, 24/7 form":"Confidentiel, formulaire 24 h/24, 7 j/7",
+"IT Helpdesk":"Assistance informatique","Accounts, Wi-Fi and software":"Comptes, Wi-Fi et logiciels","Mon–Fri 8:30–18:00":"Du lundi au vendredi, 8 h 30 – 18 h 00",
+"Data Protection Officer":"Délégué à la protection des données","Access, correction or deletion of personal data":"Accès, rectification ou suppression des données personnelles",
+"Finance for clubs":"Finances des clubs","Club funding, grants and receipts":"Financement, subventions et justificatifs des clubs",
+"Room and equipment booking":"Réservation de salles et de matériel","Rooms and equipment loans for clubs":"Salles et prêt de matériel pour les clubs","Mon–Fri 9:00–17:00":"Du lundi au vendredi, 9 h 00 – 17 h 00",
+"Safety and events":"Sécurité et événements","Event safety and event requests":"Sécurité et demandes d'événements","By appointment":"Sur rendez-vous",
+"Loans, databases and study rooms":"Prêts, bases de données et salles de travail",
+"Start-up & Entrepreneurship Club":"Club Start-up et entrepreneuriat","Pitch nights, founder talks, visits with Paris & Co incubator partners":"Soirées pitch, rencontres avec des fondateurs, visites avec les partenaires incubateurs de Paris & Co",
+"AI & Data Club":"Club IA et données","Hands-on workshops, reading group, small hackathons, tool demos":"Ateliers pratiques, groupe de lecture, petits hackathons, démonstrations d'outils",
+"Intercultural Café":"Café interculturel","Language-exchange and culture evenings; organises Potluck Day":"Soirées d'échange linguistique et culturel ; organise le Potluck Day",
+"Public Speaking & Debate":"Prise de parole et débat","Practice rounds, impromptu speeches, inter-school friendly debates":"Séances d'entraînement, discours improvisés, débats amicaux inter-écoles",
+"Career & Networking Club":"Club Carrière et réseau","CV clinics, mock interviews, alumni coffee chats, LinkedIn sessions":"Ateliers CV, simulations d'entretien, cafés avec des anciens, sessions LinkedIn",
+"Sustainability Club":"Club Développement durable","Campus waste audit, clean-up days, green-business case clinics":"Audit des déchets du campus, journées de nettoyage, cliniques de cas d'entreprises vertes",
+"Sports Association":"Association sportive","Football, running group, badminton; tournaments with nearby schools":"Football, course à pied, badminton ; tournois avec les écoles voisines",
+"Photo & Video Club":"Club Photo et vidéo","Campus media, event coverage, short documentary projects":"Médias du campus, couverture d'événements, courts documentaires",
+"Board Games & Cinema":"Jeux de société et cinéma","Game nights, film screenings with discussion, themed evenings":"Soirées jeux, projections suivies de discussions, soirées à thème",
+"Music & Open Mic":"Musique et scène ouverte","Jam sessions, open-mic evenings, end-of-term concert":"Jam sessions, soirées scène ouverte, concert de fin de semestre",
+"1 Fictional Avenue":"1 avenue Fictive","Apply":"Candidater","Tuition & fees":"Frais de scolarité","Open days":"Journées portes ouvertes",
+"Campus":"Campus","Student life":"Vie étudiante","Clubs":"Clubs",
+"Legal":"Mentions légales","Privacy policy":"Politique de confidentialité","Accessibility":"Accessibilité","Site map":"Plan du site",
+"© 2026 Demo page. Not affiliated with the real institution.":"© 2026 Page de démonstration. Sans lien avec l'établissement réel."
+};
+var ORIG=new Map(),TITLE={en:"Contact – ESIEE Paris (Mockup)",fr:"Contact – ESIEE Paris (Maquette)"};
+function tr(s){
+  if(FR[s])return FR[s];
+  return s.replace(/^Ms\. /,"Mme ").replace(/^Mr\. /,"M. ");
+}
+function setLang(l){
+  var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
+    var p=n.parentNode.nodeName;return(p==="SCRIPT"||p==="STYLE")?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT}});
+  var n;
+  while((n=w.nextNode())){
+    if(!ORIG.has(n))ORIG.set(n,n.nodeValue);
+    var o=ORIG.get(n),t=o.trim();
+    if(l==="fr"&&t){
+      var r=tr(t);
+      n.nodeValue=r===t?o:o.replace(t,r);
+    }else n.nodeValue=o;
+  }
+  var inp=document.querySelector(".search input");
+  inp.placeholder=l==="fr"?"Rechercher sur le site":"Search the site";
+  inp.setAttribute("aria-label",l==="fr"?"Rechercher":"Search");
+  document.documentElement.lang=l;document.title=TITLE[l];
+  document.getElementById("lfr").className=l==="fr"?"cur":"";
+  document.getElementById("len").className=l==="en"?"cur":"";
+  try{localStorage.setItem("esiee-lang",l)}catch(e){}
+}
+document.getElementById("lfr").onclick=function(e){e.preventDefault();setLang("fr")};
+document.getElementById("len").onclick=function(e){e.preventDefault();setLang("en")};
+var saved="en";try{saved=localStorage.getItem("esiee-lang")||"en"}catch(e){}
+setLang(saved==="fr"?"fr":"en");
+</script>
+</body>
+</html>
